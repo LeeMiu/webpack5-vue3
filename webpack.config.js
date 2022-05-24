@@ -20,6 +20,21 @@ module.exports = {
         use: ['style-loader', 'css-loader'],
       },
       {
+        test: /\.less$/,
+        use: [
+          'style-loader',
+          'css-loader',
+          {
+            loader: 'less-loader',
+            options: {
+              lessOptions: {
+                javascriptEnabled: true,
+              },
+            },
+          },
+        ],
+      },
+      {
         test: /\.(png|jpe?g|gif)$/,
         type: 'asset/resource',
         generator: {
@@ -29,8 +44,18 @@ module.exports = {
       {
         // 对所有引入的tsx文件进行解析
         test: /\.tsx?$/,
-        loader: 'ts-loader',
         exclude: /node_modules/,
+        use: [
+          {
+            loader: 'babel-loader',
+            options: {
+              presets: ['solid'],
+            },
+          },
+          {
+            loader: 'ts-loader',
+          },
+        ],
       },
     ],
   },
