@@ -1,0 +1,27 @@
+{
+  "compileOnSave": true,
+  "compilerOptions": {
+    "typeRoots": [
+      "node_modules/@types",
+      "src/types"
+    ],
+    "target": "esnext", // 指定 ECMAScript 目标版本: 'ES3' (default), 'ES5', 'ES2015', 'ES2016', 'ES2017', or 'ESNEXT'
+    "useDefineForClassFields": true,
+    "module": "esnext", // 指定使用模块: 'commonjs', 'amd', 'system', 'umd' or 'es2015'
+    "moduleResolution": "node", // 选择模块解析策略： 'node' (Node.js) or 'classic' (TypeScript pre-1.6)
+    "strict": false, // 启用所有严格类型检查选项
+    "jsx": "preserve", // 指定 jsx 代码的生成: 'preserve', 'react-native', or 'react'
+    "sourceMap": true, // 生成相应的 '.map'文件
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "lib": ["esnext", "es6", "dom", "dom.iterable"], // 指定要包含在编译中的库文件
+    "baseUrl": "./",
+    "paths":{ // 模块名到基于 baseUrl 的路径映射的列表
+      "@": ["src"],
+      "@/*": ["src/*"],
+    }
+  },
+  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue", "images.d.ts"],
+  "references": [{ "path": "./tsconfig.node.json" }]
+}
+
